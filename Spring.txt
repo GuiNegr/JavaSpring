@@ -1,2 +1,24 @@
 Spring funciona como o maven, você consegue utilizar para simplicar codigos muito verbosos, como o crud que eu utilizei no projeto de plataforma de curso
 Usando as marcações @ em java,conseguimos importar bibliotecas e dizer a utilidade daquela classe em si
+
+framework de css utilizado : https://nostalgic-css.github.io/NES.css/#
+
+o framework spring funciona a base do modelo mvc(assim como utilizado tambem no meu projeto).
+
+=================================================================================================================
+@Entity//está indicando que vai ser algo do bd
+@Data // gera automaticamente getter/seter/consturores etc
+public class Task {
+
+    @Id @GeneratedValue(strategy = GenerationType.AUTO)// deixa o valor abaixo ser a cahve do bd e deixar alto incremento
+    private Long id;
+    private String title, description;
+    private Integer score;
+    private Integer status;
+
+
+aqui estou criando a tabela de entidade dentro do meu programa, assim não preciso fazer algo tão verboso no java web
+=========================================================================================================================
+
+=========================================================================================================================
+
