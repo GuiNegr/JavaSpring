@@ -1,0 +1,10 @@
+body{
+padding:2 rem;
+
+}
+
+section{
+display:grid;
+grid-template-columns: repeat(auto-fill,mimax(300px, 1fr));
+gap: 1rem;
+}

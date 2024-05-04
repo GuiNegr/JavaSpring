@@ -1,11 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th = "https://Thymeleaf.org" >
+<link href="https://unpkg.com/nes.css/css/nes-core.min.css" rel="stylesheet" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TaskControle</title>
+    <link rel="stylesheet" href="/static/Style.css">
 </head>
 <body>
+
+<div class="nes-container is-rounded is-dark">
     <h1>EPIC TASK MAN</h1>
+</div>
+
+
+
+
+
+<section>
+    <div th:each = "task : ${tasks}" class="nes-container is-dark with-title">
+        <p class="title" th:text = "${task.title}"></p>
+        <p th:text = "${task.description}"></p>
+        <a href="#" class="nes-badge is-icon">
+            <span class="is-warning"><i class="nes-icon trophy is-large"></i></span>
+            <span class="is-primary" th:text ="${task.score}"></span>
+        </a>
+        <progress class="nes-progress is-success" th:value="${task.status}" max="100" ></progress>
+    </div>
+</section>
+
+
+<section class="nes-container is-dark">
+    <section class="message-list">
+        <section class="message -left">
+            <i class="nes-bcrikko"></i>
+            <!-- Balloon -->
+            <div class="nes-balloon from-left is-dark">
+                <p>EITA Q O BIXO MANJA DE JAVA</p>
+            </div>
+        </section>
+        
+    </section>
+</section>
+</section>
+
 </body>
 </html>

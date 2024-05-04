@@ -1,0 +1,2 @@
+Spring funciona como o maven, você consegue utilizar para simplicar codigos muito verbosos, como o crud que eu utilizei no projeto de plataforma de curso
+Usando as marcações @ em java,conseguimos importar bibliotecas e dizer a utilidade daquela classe em si
