@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th = "https://Thymeleaf.org" >
+<link href="https://unpkg.com/nes.css/css/nes-core.min.css" rel="stylesheet" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskControle</title>
+    <link rel="stylesheet" href="/static/Style.css">
+</head>
+
+<body>
+<div class="nes-container is-rounded is-dark">
+    <h1>EITA AMIGO MAIS UM PRA LISTA?</h1>
+    <h2>ADICIONANDO JOGOS NA LISTA</h2>
+</div>
+<p></p>
+<div style="background-color:#212529; padding: 1rem;" class="nes-field is-inline">
+    <form action="/task" method="post">
+    <label for="title" style="color:#fff;">Titulo</label>
+    <input type="text" id="title" class="nes-input is-dark" placeholder="Titulo do game" name="title">
+
+    <label for="description" style="color:#fff;">Descrição</label>
+    <input type="text" id="description" class="nes-input is-dark" placeholder="Descrição do game" name="description">
+
+    <label for="score" style="color:#fff;">AVALIE O SEU JOGO</label>
+    <input type="number" min="1" max="100" id="score" class="nes-input is-dark" placeholder="AVALIE O GAME DE 0 A 100" name="score">
+
+    <label for="status" style="color:#fff;">Status de conclusão</label>
+    <input type="number" min="0" max="100" id="status" class="nes-input is-dark" placeholder="INFORME EM NUMEROS A % DE CONCLUSAO" name="status">
+    </form>
+</div>
+
+<div class="actions" style="display: flex; justify-content: center; align-items: center; padding: 10; margin: 10; ">
+    <a href="/task/index"  class="nes-btn is-error">voltar para a pagina</a>
+    <button type="submit" class="nes-btn is-success">Enviar</button>
+</div>
+
+
+<section class="nes-container is-dark">
+    <section class="message-list">
+        <section class="message -left">
+            <i class="nes-bcrikko"></i>
+            <!-- Balloon -->
+            <div class="nes-balloon from-left is-dark">
+                <p>EITA Q O BIXO TA CRIANDO COISA PARA BD</p>
+                <img src="" alt="">
+            </div>
+        </section>
+        
+    </section>
+</section>
+</section>
+
+</body>
+</html>

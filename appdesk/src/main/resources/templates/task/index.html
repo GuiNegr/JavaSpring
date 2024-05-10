@@ -10,15 +10,12 @@
     <title>TaskControle</title>
     <link rel="stylesheet" href="/static/Style.css">
 </head>
+    <a href="/task/new"  class="nes-btn is-error">ADD GAME</a>
 <body>
 
 <div class="nes-container is-rounded is-dark">
-    <h1>EPIC TASK MAN</h1>
+    <h1>JOGOS QUE UM DIA ZERAREI/ZEREI JÁ</h1>
 </div>
-
-
-
-
 
 <section>
     <div th:each = "task : ${tasks}" class="nes-container is-dark with-title">
@@ -29,6 +26,9 @@
             <span class="is-primary" th:text ="${task.score}"></span>
         </a>
         <progress class="nes-progress is-success" th:value="${task.status}" max="100" ></progress>
+       <form th:action="${'/task/delete/'+task.id}" method="post">
+        <button type="submit" class="nes-btn is-error">Apagar</button>
+       </form>
     </div>
 </section>
 
