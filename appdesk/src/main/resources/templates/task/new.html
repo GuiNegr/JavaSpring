@@ -10,7 +10,6 @@
     <title>TaskControle</title>
     <link rel="stylesheet" href="/static/Style.css">
 </head>
-
 <body>
 <div class="nes-container is-rounded is-dark">
     <h1>EITA AMIGO MAIS UM PRA LISTA?</h1>
@@ -18,25 +17,30 @@
 </div>
 <p></p>
 <div style="background-color:#212529; padding: 1rem;" class="nes-field is-inline">
-    <form action="/task" method="post">
+    <form action="/task" method="post" th:object="${task}">
     <label for="title" style="color:#fff;">Titulo</label>
     <input type="text" id="title" class="nes-input is-dark" placeholder="Titulo do game" name="title">
+    <span class="nes-text is-error" th:errors ="*{title}"></span>
 
     <label for="description" style="color:#fff;">Descrição</label>
     <input type="text" id="description" class="nes-input is-dark" placeholder="Descrição do game" name="description">
+    <span class="nes-text is-error" th:errors ="*{title}"></span>
 
     <label for="score" style="color:#fff;">AVALIE O SEU JOGO</label>
     <input type="number" min="1" max="100" id="score" class="nes-input is-dark" placeholder="AVALIE O GAME DE 0 A 100" name="score">
+    <span class="nes-text is-error" th:errors ="*{title}"></span>
 
     <label for="status" style="color:#fff;">Status de conclusão</label>
     <input type="number" min="0" max="100" id="status" class="nes-input is-dark" placeholder="INFORME EM NUMEROS A % DE CONCLUSAO" name="status">
-    </form>
+    <div class="actions" style="display: flex; justify-content: center; align-items: center; padding: 10; margin: 10; ">
+        <a href="/task"  class="nes-btn is-error">voltar para a pagina</a>
+        <button type="submit" class="nes-btn is-success">Enviar</button>
+    </div>
+    
+
+</form>
 </div>
 
-<div class="actions" style="display: flex; justify-content: center; align-items: center; padding: 10; margin: 10; ">
-    <a href="/task/index"  class="nes-btn is-error">voltar para a pagina</a>
-    <button type="submit" class="nes-btn is-success">Enviar</button>
-</div>
 
 
 <section class="nes-container is-dark">
@@ -46,7 +50,7 @@
             <!-- Balloon -->
             <div class="nes-balloon from-left is-dark">
                 <p>EITA Q O BIXO TA CRIANDO COISA PARA BD</p>
-                <img src="" alt="">
+                <img src="https://upload.wikimedia.org/wikipedia/pt/thumb/c/c2/Peter_Griffin.png/250px-Peter_Griffin.png" alt="PeterGriffin" style="width: 15vw;">
             </div>
         </section>
         
