@@ -1,7 +1,10 @@
 package br.senac.sp.appdesk;
 
 import jakarta.validation.Valid;
+import org.springframework.ai.openai.OpenAiChatClient;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -15,11 +18,15 @@ public class TaskControler {
 
     @Autowired
     taskRepository repository;
+
+    @Autowired
+    OpenAiChatClient gpt;
     @GetMapping
-    public String index(Model model){
-        List<Task> tasks = repository.findAll();
-        model.addAttribute("tasks",tasks);
-        return "task/index";
+    public String index(Model model, @AuthenticationPrincipal OAuth2User user) {
+        var tasks = repository.findAll();
+        model.addAttribute("tasks", tasks);
+        model.addAttribute("user", user);
+        return "task/index.html";
     }
 
     // /task/delete/getId
@@ -38,6 +45,12 @@ public class TaskControler {
     @PostMapping
     public String create(@Valid Task task,BindingResult result ){
         if(result.hasErrors()) return "task/new";
+
+        if(task.getDescription() == null || task.getDescription().isBlank()){
+            task.setDescription(gpt.call(
+                    "CRIE UMA DESCRIÇÃO com até 200 caracteres  PARA ESSE JOGO COM O TITULO"+ task.getTitle()
+            ));
+        }
         repository.save(task);
         return "redirect:/task";
     }

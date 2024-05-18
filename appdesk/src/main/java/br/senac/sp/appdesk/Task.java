@@ -13,14 +13,53 @@ public class Task {
 
     @Id @GeneratedValue(strategy = GenerationType.AUTO)// deixa o valor abaixo ser a cahve do bd e deixar alto incremento
     private Long id;
-    @NotBlank
+
+    @NotNull
     private String title;
-    @Size(min = 10, max = 255)
+
     private String description;
     @PositiveOrZero
     private Integer score;
     @PositiveOrZero
     private Integer status;
 
+    public Long getId() {
+        return id;
+    }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Integer getScore() {
+        return score;
+    }
+
+    public void setScore(Integer score) {
+        this.score = score;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
 }

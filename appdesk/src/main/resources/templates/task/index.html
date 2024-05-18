@@ -14,7 +14,9 @@
 <body>
 
 <div class="nes-container is-rounded is-dark">
-    <h1>JOGOS QUE UM DIA ZERAREI/ZEREI JÁ</h1>
+    <h1>LISTA DE GAMES</h1>
+    <span th:text="${user.attributes.name}" style="display: inline-block; text-align: rigth;"></span>
+    <img class="game" th:src="${user.attributes.avatar_url}" th:alt="${user.attributes.avatar_url}" style="width: 100px; height: 100px; border-radius: 50px; display: inline-block; text-align: center;"/>
 </div>
 
 <section>
